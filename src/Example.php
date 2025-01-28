@@ -463,7 +463,7 @@ class Example extends CommonDBTM {
       parent::processMassiveActionsForOneItemtype($ma, $item, $ids);
    }
 
-   static function generateLinkContents($link, CommonDBTM $item) {
+   static function generateLinkContents($link, CommonDBTM $item, bool $safe_url = true) {
 
       if (strstr($link, "[EXAMPLE_ID]")) {
          $link = str_replace("[EXAMPLE_ID]", $item->getID(), $link);
