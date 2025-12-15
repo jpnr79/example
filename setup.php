@@ -89,9 +89,12 @@ function plugin_init_example()
         ['device_types' => true],
     );
 
-    if (version_compare(GLPI_VERSION, '9.1', 'ge') && class_exists(Example::class)) {
-        Link::registerTag(Example::$tags);
-    }
+    // Registering link tags with `Link::registerTag()` is deprecated in newer GLPI
+    // versions and may emit deprecation notices. Example plugin ships only as
+    // a reference/demo; skip registering legacy tags to avoid deprecation noise.
+    // if (version_compare(GLPI_VERSION, '9.1', 'ge') && class_exists(Example::class)) {
+    //     Link::registerTag(Example::$tags);
+    // }
     // Display a menu entry ?
     Plugin::registerClass(Profile::class, ['addtabon' => ['Profile']]);
     if (Example::canView()) { // Right set in change_profile hook
