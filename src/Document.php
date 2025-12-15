@@ -147,7 +147,7 @@ class Document extends GlpiDocument
      */
     protected function sendFile()
     {
-        $streamSource = GLPI_DOC_DIR . '/' . $this->fields['filepath'];
+        $streamSource = GLPI_DOC_DIR . '/' . $this->fields['filepath'] ?? '';
 
         // Ensure the file exists
         if (!file_exists($streamSource) || !is_file($streamSource)) {
@@ -191,7 +191,7 @@ class Document extends GlpiDocument
         header('Expires: Mon, 26 Nov 1962 00:00:00 GMT');
         header('Pragma: private'); /// IE BUG + SSL
         header('Cache-control: private, must-revalidate'); /// IE BUG + SSL
-        header('Content-disposition: attachment; filename="' . $this->fields['filename'] . '"');
+        header('Content-disposition: attachment; filename="' . $this->fields['filename'] ?? '' . '"');
         header("Content-type: $mimeType");
         header("Last-Modified: $time");
         header('Accept-Ranges: bytes');
