@@ -192,7 +192,7 @@ TWIG, []);
             return false;
         }
 
-        $edit_panel = 'viewitem' . $ticket->fields['id'] ?? '' . $rand;
+        $edit_panel = 'viewitem' . ($ticket->fields['id'] ?? '') . $rand;
         $JS         = <<<JAVASCRIPT
       $(function() {
          $(document).on('click', '#email_transfer_{$rand}', function(event) {

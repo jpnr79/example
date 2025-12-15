@@ -368,7 +368,7 @@ function plugin_pre_item_update_example($item)
 {
     /* Manipulate data if needed
     if (!isset($item->input['comment'])) {
-       $item->input['comment'] = addslashes($item->fields['comment'] ?? '');
+       $item->input['comment'] = addslashes(($item->fields['comment'] ?? ''));
     }
     $item->input['comment'] .= addslashes("\nUpdate: ".date('r'));
     */

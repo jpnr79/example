@@ -138,7 +138,7 @@ class Showtabitem
      *                and 'options' are options like following
      *                if item is a main object like a ticket, change, problem, ... then it contains
      *                  array( 'id' )
-     *                  where 'id' is the id of object that will be shown (same than $param['item']->fields['id'] ?? '')
+     *                  where 'id' is the id of object that will be shown (same than ($param['item']->fields['id'] ?? ''))
      *                or if item contains a sub-object like followup, task, ... then it contains
      *                  array( 'parent', 'rand', 'showprivate')
      *                  where 'parent' is the main object related to the current item (ex: if 'item' is ITILFollowup then it will be the related Ticket)
@@ -174,7 +174,7 @@ class Showtabitem
      *                and 'options' are options like following
      *                if item is a main object like a ticket, change, problem, ... then it contains
      *                  array( 'id' )
-     *                  where 'id' is the id of object that will be shown (same than $param['item']->fields['id'] ?? '')
+     *                  where 'id' is the id of object that will be shown (same than ($param['item']->fields['id'] ?? ''))
      *                or if item contains a sub-object like followup, task, ... then it contains
      *                  array( 'parent', 'rand', 'showprivate')
      *                  where 'parent' is the main object related to the current item (ex: if 'item' is ITILFollowup then it will be the related Ticket)
