@@ -332,7 +332,15 @@ function plugin_version_example()
  */
 function plugin_example_check_prerequisites()
 {
-    return !false;
+    if (version_compare(GLPI_VERSION, PLUGIN_EXAMPLE_MIN_GLPI, 'lt')) {
+        Toolbox::logInFile('example', sprintf(
+            'ERROR [%s:%s] GLPI version too low: %s, user=%s',
+            __FILE__, __FUNCTION__, GLPI_VERSION, $_SESSION['glpiname'] ?? 'unknown'
+        ));
+        echo "This plugin requires GLPI >= " . PLUGIN_EXAMPLE_MIN_GLPI;
+        return false;
+    }
+    return true;
 }
 
 /**
